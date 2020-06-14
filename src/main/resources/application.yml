@@ -1,0 +1,18 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: kafkaStreamTest
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+      bindings:
+         greetings-in:
+            destination: greetingstopic
+            contentType: application/json
+         greetings-out:
+            destination: greetingstopic
+            content-type: application/json 
+#greetings - kafka topic we use for both the inbound and outbound streams in our code. They both must use the same Kafka topic
