@@ -1,17 +1,18 @@
 server:
-  port: 9000
+  port: 8085
 spring:
   application:
-    name: kafkaStreamTest
+    name: springstreamkafkadocker
   cloud:
     stream:
       kafka:
         binder:
-          brokers: localhost:9092
+          brokers: kafka:9092
+          zknodes: zookeeper:2181
       bindings:
          greetings-in:
             destination: greetingstopic
-            contentType: application/json
+            content-type: application/json
          greetings-out:
             destination: greetingstopic
             content-type: application/json 
